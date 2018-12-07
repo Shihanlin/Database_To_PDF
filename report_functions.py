@@ -6,7 +6,7 @@ import psutil
 from pdf import *
 from reportlab.platypus import  Table
 from spreadsheettable import SpreadsheetTable
-#获取系统信息
+#获取系统信息（是否集群）
 def function():
 	pass
 
@@ -66,3 +66,39 @@ def get_diskinfo():
     for field in table.field_names:
         table.align[field] = "l"
     print table
+
+#获取集群状态
+def function():
+	pass
+
+#获取集群磁盘状态
+def function():
+	pass
+
+#获取集群文件备份状态
+def function():
+	pass
+
+#获取集群日志
+def function():
+	pass
+
+#连接oracle数据库
+def function():
+	pass
+
+#获取oracle表空间信息
+def function():
+	pass
+
+#获取oracle表空间信息
+def function():
+	pass
+
+#获取oracle日志信息
+def function():
+	pass
+
+#获取数据库备份信息
+def function():
+	pass
