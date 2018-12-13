@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #from settings import *
-from pdf import *
-from reportlab.pdfgen import canvas
-from settings import *
+from oracle_oper import Oracle_Oper
+from pdf import DOC
+from settings import Settings
+from reportlab.platypus import Paragraph
+
 '''
 def main():
 	setting=Settings()
@@ -37,13 +39,17 @@ def main():
 	content = []
 	setting=Settings()
 	doc_instance=DOC(setting)
+	ora_conn1=Oracle_Oper(setting)
 #add some flowables
 	content.append(Paragraph(u"这是标题This is a Heading",doc_instance.styleH))
 	content.append(Paragraph("This is a paragraph in <i>Normal</i> style.",doc_instance.styleN))
+	queryAnsList=ora_conn1.selectFromDbTable()
+	tbs_table=doc_instance.generate_data_table(queryAnsList)
+	content.append(tbs_table)
 	doc_instance.generate_pdf()
 	doc_instance.doc.build(content)
-
 
 if __name__ == "__main__":
     main()
   
+
